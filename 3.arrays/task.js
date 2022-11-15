@@ -1,4 +1,4 @@
-function compareArrays(arr1, arr2) {
+function compareArraysWithIf(arr1, arr2) {
   let result;
   if(arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])) {
     result = true;
@@ -8,7 +8,13 @@ function compareArrays(arr1, arr2) {
   return result; // boolean
 }
 
-function compareArraysBetterVersion(arr1, arr2) {
+function compareArrays(arr1, arr2) {
+  let result;
+  
+  return result = (arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])); // boolean
+}
+
+function compareArraysVersion2(arr1, arr2) {
   let result;
   (arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])) ? result = true : result = false;
   
