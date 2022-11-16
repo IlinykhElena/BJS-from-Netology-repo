@@ -14,8 +14,7 @@ Student.prototype.setSubject = function (subjectName) {
 
 Student.prototype.addMark = function (mark) {
   if(this.marks === undefined){ 
-    let marks = [mark];
-    this.marks = marks;
+    this.marks = [mark];
   // добавить первую оценку 
     } else {
       this.marks = [...this.marks, mark];      
@@ -24,26 +23,21 @@ Student.prototype.addMark = function (mark) {
 
 Student.prototype.addMarks = function (...newMarks) {
   if(this.marks === undefined){ 
-    let marks = [...newMarks];
-    this.marks = marks;
+    this.marks = newMarks;
     } else {
-      this.marks = [...this.marks, ...newMarks];      
+      this.marks.push(...newMarks);      
     }
 }
 
 Student.prototype.getAverage = function () {
-  let sum = this.marks.reduce((sum, current) => sum + current, 0);
-  let average = sum / this.marks.length;
+  let average = (this.marks.reduce((sum, current) => sum + current, 0)) / this.marks.length;
   return average;  
 }
 
 Student.prototype.exclude = function(reason) {
-  if(this.average < 2.5) {
-    delete this.subject;
-    delete this.marks;
-    reason = 'law grades';
-    this.excluded = reason;
-  }
+  delete this.subject;
+  delete this.marks;
+  this.excluded = reason;
 }
 
  
