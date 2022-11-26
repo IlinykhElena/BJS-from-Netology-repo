@@ -82,13 +82,11 @@ class Library {
     }
 
     findBookBy(type, value) {
-        let result;
+        let result = null;
         for(let i = 0; i < this.books.length; i++) {
             if(this.books[i][type] === value) {
                 result =  this.books[i];
-            } else {
-                result = null;
-            }
+            } 
         }
         return result;
     }
@@ -98,8 +96,53 @@ class Library {
         let givenBook = this.findBookBy("name", bookName);
 
         if(givenBook != null) {
-            delete this.givenBook;
+            let newBooks = [];
+            for(let i = 0; i < this.books.length; i++) {
+                if(this.books[i] != givenBook) {
+                    newBooks.push(this.books[i]);
+                }
+            }
+            this.books = newBooks;                    
         } 
         return givenBook;
     }
 }
+
+// Задача №3. Студент
+// class Student {
+//     constructor(name, gender, age) {
+//     this.name = name;
+//     this.gender = gender;
+//     this.age = age;
+//     this.marks = [];
+//     }
+
+//     addMark(note, subjectName) {
+//         let mark = {
+//             subjekt: subjectName,
+//             mark: note
+//           };
+//         if(note < 1 || note > 5) {
+//             this.mark = mark;
+//             this.marks.push(this.mark);
+//         } else {
+//             console.log("Ошибка, оценка должна быть числом от 1 до 5");
+//         }
+//     }
+    
+//     getAverageBySubject(subject) {
+//         let marksSumBySubject = 0;
+//         let marksBySubjectCount = 0;
+//         for(let element in this.marks) {
+//             if(element.subject === subject) {
+//                 marksSumBySubject = marksSumBySubject + element.mark;
+//                 marksBySubjectCount += 1;
+//             } else {
+//                 console.log("Несуществующий предмет");
+//             }
+//         }
+//         let average = marksSumBySubject / marksBySubjectCount;
+//     }
+//}
+ 
+    
